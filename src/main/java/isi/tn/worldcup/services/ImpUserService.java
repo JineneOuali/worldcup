@@ -1,29 +1,26 @@
 package isi.tn.worldcup.services;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import isi.tn.worldcup.services.IUserService;
 import isi.tn.worldcup.entities.User;
-import isi.tn.worldcup.repositories.UserRepository;
+import isi.tn.worldcup.repository.userRepository;
 
 @Service
 public class ImpUserService implements IUserService{
-
+	
 	@Autowired
-	UserRepository urepos;
-
+	userRepository urepos;
+    
 	@Override
 	public User saveUser(User user) {
-		// TODO Auto-generated method stub
 		return urepos.save(user);
 	}
 
 	@Override
 	public List<User> findAllUsers() {
-		// TODO Auto-generated method stub
 		return urepos.findAll();
 	}
-	
 }
+
