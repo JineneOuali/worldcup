@@ -10,30 +10,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import lombok.Builder;
 //import javax.persistence.ManyToMany;
-
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
-//import isi.tn.entities.Project;
+@Entity // 3IBARA L CLASSE HEKI ASNA3LI MNHA TABLE
 
-@Entity
-public class User implements Serializable{
-	
+public class User implements Serializable {
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)  
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // ID SERA G2N2RER AUTO 
 	@Column(name="userid")
 	private Long id;
 	private String email;
 	private String pwd;
 	private String fname;
 	private String lname;
-	
+		
 	
 	public User() {
 		super();
 	}
-	
+	public Long getId() {
+		return id;
+	}
+
 	public User(Long id, String email, String pwd, String fname, String lname) {
 		super();
 		this.id = id;
@@ -41,10 +46,6 @@ public class User implements Serializable{
 		this.pwd = pwd;
 		this.fname = fname;
 		this.lname = lname;
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
@@ -73,15 +74,15 @@ public class User implements Serializable{
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", pwd=" + pwd + ", fname=" + fname + ", lname=" + lname + "]";
+		return "User [id=" + id + ", email=" + email + ", pwd=" + pwd + ", fname=" + fname + ", lname=" + lname
+				 + "]";
 	}
+
+	
 	
 	
 
 }
+
